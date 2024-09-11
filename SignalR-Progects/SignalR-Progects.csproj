@@ -16,4 +16,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\microsoft-signalr\" />
+  </ItemGroup>
+
 </Project>
