@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SignalR_Progects.Data;
+using SignalR_Progects.Hubs;
 using SignalR_Projects.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -45,5 +46,6 @@ app.MapControllerRoute(
 app.MapRazorPages();
 //---------------> 3
 app.MapHub<UserHub>("/hubs/userCount");
+app.MapHub<DeathlyHallowsHub>("/hubs/DeathlyHallows");
 
 app.Run();
