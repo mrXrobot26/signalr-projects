@@ -1,5 +1,12 @@
-﻿// Create connection
-var connectionUserCount = new signalR.HubConnectionBuilder().withUrl("/hubs/userCount").build();
+﻿
+// Create connection
+//basic form
+/*var connectionUserCount = new signalR.HubConnectionBuilder().withUrl("/hubs/userCount").build();*/
+
+var connectionUserCount = new signalR.HubConnectionBuilder()
+    .configureLogging(signalR.LogLevel.Information)// instade Information there is (None, Critical, Error, Warning, Information, Debug, or Trace)
+    .withUrl("/hubs/userCount", signalR.HttpTransportType.WebSockets)
+    .build();
 
 // Connect method to hub (receive notification from hub)
 connectionUserCount.on("updateTotalViews", (value) => {
@@ -38,7 +45,7 @@ connectionUserCount.on("updateTotalUsers", (value) => {
 // diffrent btw sennd and invoke is that invok can
 //1 - passing a value to the server
 //2 - and receiving a result from the server 
-//ex
+
 function NewWindowLoadedOnClient() {
     const someValue = 42;
     connectionUserCount.invoke("NewWindowLoaded", someValue /*to sever*/)
