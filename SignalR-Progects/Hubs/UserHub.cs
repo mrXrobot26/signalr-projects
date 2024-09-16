@@ -48,8 +48,9 @@ namespace SignalR_Projects.Hubs
 
         public async Task<int> NewWindowLoaded(int valueFromClient)
         {
+
             // Use the value passed from the client (for demonstration)
-            Console.WriteLine("Value received from client: " + valueFromClient);
+            Console.WriteLine("New window opened : " + valueFromClient);
 
             Interlocked.Increment(ref _totalViews);
             await Clients.All.SendAsync("updateTotalViews", TotalViews);
