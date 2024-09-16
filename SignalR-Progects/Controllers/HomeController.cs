@@ -28,6 +28,14 @@ namespace SignalR_Progects.Controllers
         {
             return View();
         }
+        public IActionResult HallowsRace()
+        {
+            return View();
+        }
+        public IActionResult HarryPotterHouses()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
